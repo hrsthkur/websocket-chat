@@ -45,7 +45,7 @@ io.on('connection', (socket)=>{
 app.get('/', (req, res) => {
   res.send('<h1>Hello world</h1>');
 });
-
-server.listen(3200, () => {
+const PORT = "https://websocket-chat-rury.onrender.com/"
+server.listen(PORT || 3200, () => {
   console.log('server running at http://localhost:3200');
 });
