@@ -16,9 +16,8 @@ const App = () => {
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault(); 
-      if (message.trim()!== "") {
-        onSend(message);
-        setMessage("");
+      if (text.trim()!== "") {
+        sendMessage();
       }
     }
   };
@@ -232,13 +231,12 @@ return ()=>{
                                 rows={1}
                                 value={text}
                                 onChange={(e) => setText(e.target.value)}
-                               
+                               onKeyDown={handleKeyDown}
                                 placeholder="Type a message..."
                                 className="w-full resize-none px-4 py-4 text-sm outline-none"
                             />
                             <button
                                 onClick={sendMessage}
-                              onKeyDown={handleKeyDown}
                                 className="bg-green-500 text-white px-4 py-2 mr-2 rounded-full text-sm font-medium cursor-pointer">
                                 Send
                             </button>
