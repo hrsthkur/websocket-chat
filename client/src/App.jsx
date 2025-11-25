@@ -11,6 +11,18 @@ const App = () => {
   const [messages,setMessages] = useState([])
   const [text,setText] = useState('')
   const ROOM = 'group'
+
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault(); 
+      if (message.trim()!== "") {
+        onSend(message);
+        setMessage("");
+      }
+    }
+  };
+
   
   function sendMessage() {
     const t = text.trim();
@@ -226,6 +238,7 @@ return ()=>{
                             />
                             <button
                                 onClick={sendMessage}
+                              onKeyDown={handleKeyDown}
                                 className="bg-green-500 text-white px-4 py-2 mr-2 rounded-full text-sm font-medium cursor-pointer">
                                 Send
                             </button>
